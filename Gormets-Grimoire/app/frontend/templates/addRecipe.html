@@ -1,0 +1,55 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add Recipe - Gourmet's Grimoire</title>
+	<link rel="stylesheet" type="text/css" href="/static/index.css">
+</head>
+<body>
+
+<header class="site-header">
+	<h1>Gourmet's Grimoire: Add Recipe</h1>
+</header>
+
+<nav>
+	<ul>
+		<li><a href="/home">Home</a></li>
+		<li><a href="/myRecipes">My Recipes</a></li>
+		<li><a href="/favoriteRecipes">Favorite Recipes</a></li>
+		<li><a href="/allRecipes">All Recipes</a></li>
+		<li><a href="/addRecipe">Create New Recipe!</a></li>
+		<li><a href="/cart">Shopping Cart</a></li>
+		<li><a href="/userSettings">User Settings</a></li>
+		<li><a href="/logout">Log Out</a></li>
+	</ul>
+</nav>
+
+<main id="add-recipe-container">
+	<section class="form-container">
+		<h2>Create a new Recipe!</h2>
+		<form method="post" action="/addRecipe" enctype="multipart/form-data" class="recipe-form">
+			<div class="form-group">
+				<label for="title">Name:</label>
+				<input type="text" id="title" name="title" required>
+			</div>
+			<div class="form-group">
+				<label for="description">Description:</label>
+				<textarea id="description" name="description"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="ingredients">Ingredients:</label>
+				<textarea id="ingredients" name="ingredients" required></textarea>
+			</div>
+			<div class="form-group">
+				<label for="instructions">Instructions:</label>
+				<textarea id="instructions" name="instructions" required></textarea>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Add Recipe">
+			</div>
+		</form>
+	</section>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Settings - Gourmet's Grimoire</title>
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+</head>
+<body>
+
+<header class="site-header">
+    <h1>Gourmet's Grimoire: User Settings</h1>
+	<h1>Update Your Settings Here!</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/myRecipes">My Recipes</a></li>
+        <li><a href="/favoriteRecipes">Favorite Recipes</a></li>
+        <li><a href="/allRecipes">All Recipes</a></li>
+        <li><a href="/addRecipe">Create New Recipe!</a></li>
+        <li><a href="/cart">Shopping Cart</a></li>
+        <li><a href="/userSettings">User Settings</a></li>
+        <li><a href="/logout">Log Out</a></li>
+    </ul>
+</nav>
+
+<main id="user-settings-container">
+    <section class="settings-section">
+        <h1>Current Username: {{user.userid}}</h1>
+		<h1>Current Password: {{user.password}}</h1>
+        <form method="post" action="{{ url_for('userSettings') }}" class="settings-form">
+            <div class="form-group">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password">
+            </div>
+            <button type="submit">Update Settings</button>
+        </form>
+    </section>
+</main>
+
+</body>
+</html>

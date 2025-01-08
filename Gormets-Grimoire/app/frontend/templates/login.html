@@ -1,0 +1,52 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Gourmet's Grimoire</title>
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+</head>
+<body class="login-background">
+
+<header class="site-header">
+    <h1>Welcome to Gourmet's Grimoire!</h1>
+    <p>An organized cookbook service, offering limitless cooking options!</p>
+</header>
+
+<main id="login-container">
+    <section class="login-section">
+        <h2>Login</h2>
+        <form method="post" class="login-form">
+            <div class="form-field">
+                <label>Username:</label>
+                <input type="text" name="userid">
+            </div>
+            <div class="form-field">
+                <label>Password:</label>
+                <input type="password" name="password">
+            </div>
+            <button type="submit" name="submit" value="Login">Login</button>
+        </form>
+    </section>
+
+    <section class="login-section">
+        <h2>Create New User</h2>
+        <form method="post" class="login-form">
+            <div class="form-field">
+                <label>Username:</label>
+                <input type="text" name="userid">
+            </div>
+            <div class="form-field">
+                <label>Password:</label>
+                <input type="password" name="password">
+            </div>
+            <div class="form-field">
+                <label>Confirm Password:</label>
+                <input type="password" name="confirmPass">
+            </div>
+            <button type="submit" name="submit" value="NewUser">Create User</button>
+        </form>
+    </section>
+</main>
+
+</body>
+</html>

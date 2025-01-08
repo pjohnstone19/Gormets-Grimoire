@@ -1,0 +1,49 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Add Recipe - Gormet's Grimoire</title>
+	<link rel="stylesheet" type="text/css" href="/static/index.css">
+</head>
+<body>
+
+<header>
+	<h1>Gormet's Grimoire: </h1>
+</header>
+
+
+<nav>
+	<p><a href="/home">Home</a></p>
+	<p><a href="/myRecipes">My Recipes</a></p>
+	<p><a href="/favoriteRecipes">Favorite Recipes</a></p>
+	<p><a href="/allRecipes">All Recipes</a></p>
+	<p><a href="/addRecipe">Create New Recipe!</a></p>
+	<p><a href="/cart">Shopping Cart</a></p>
+	<p><a href="/userSettings">User Settings</a></p>
+	<p><a href="/logout">Log Out</a></p>
+</nav>
+
+<section id="_container">
+	<form method="post" action="/"><!--enctype="multipart/form-data"-->
+		<div class="form-section">
+			<label for="title">Name:</label>
+			<input type="text" id="title" name="title" required>
+			
+			<label for="description">Description:</label>
+			<textarea id="description" name="description"></textarea>
+			
+		</div>
+
+		<div class="form-section">
+			<label for="ingredients">Ingredients:</label>
+			<textarea id="ingredients" name="ingredients" wrap="soft" required></textarea>
+			
+			<label for="instructions">Instructions:</label>
+			<textarea id="instructions" name="instructions" wrap="soft" required></textarea>
+			
+		</div>
+		
+		<input type="submit" name="submit" value="Add recipe">
+	</form>
+</section>
+</body>
+</html>

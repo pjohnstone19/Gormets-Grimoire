@@ -1,0 +1,59 @@
+<!Doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Recipes - Gourmet's Grimoire</title>
+	<link rel="stylesheet" type="text/css" href="/static/index.css">
+</head>
+<body>
+
+<header class="site-header">
+	<h1>Gourmet's Grimoire: My Recipes</h1>
+	<h1>A collection of all the recipes {{user.userid}} has created!!</h1>
+</header>
+
+<nav>
+	<ul>
+		<li><a href="/home">Home</a></li>
+		<li><a href="/myRecipes">My Recipes</a></li>
+		<li><a href="/favoriteRecipes">Favorite Recipes</a></li>
+		<li><a href="/allRecipes">All Recipes</a></li>
+		<li><a href="/addRecipe">Create New Recipe!</a></li>
+		<li><a href="/cart">Shopping Cart</a></li>
+		<li><a href="/userSettings">User Settings</a></li>
+		<li><a href="/logout">Log Out</a></li>
+	</ul>
+</nav>
+
+<main id="my-recipes-container">
+	<section class="recipe-list">
+		{% if recipes %}
+			{% for recipe in recipes %}
+			<div class="recipe-entry">
+				<h3>{{ recipe.title }}</h3>
+				<p>Description: {{ recipe.description }}</p>
+				<p>Ingredients: {{ recipe.ingredients }}</p>
+				<p>Instructions: {{ recipe.instructions }}</p>
+				<div class="recipe-actions">
+					<form method="post" action="{{ url_for('deleteRecipe', recipeId=recipe.recipeId) }}">
+						<button type="submit" class="remove-btn">Delete Recipe</button>
+					</form>
+					<form method="post" action="{{ url_for('addCart', recipeId=recipe.recipeId) }}">
+						<button type="submit">Add to Cart</button>
+					</form>
+				<!--	<form method="post" action="/myRecipes">
+						<input type="hidden" name="action" value="view" />
+						<input type="hidden" name="id" value="{{ loop.index-1 }}" />
+						<button type="submit">View</button>
+					</form>-->
+				</div>
+			</div>
+			{% endfor %}
+		{% else %}
+			<p>No recipes found. Create new recipes <a href="/addRecipe">here!</a></p>
+		{% endif %}
+	</section>
+</main>
+
+</body>
+</html>

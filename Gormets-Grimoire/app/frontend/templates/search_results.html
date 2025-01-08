@@ -1,0 +1,53 @@
+<!Doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Search Results - Gourmet's Grimoire</title>
+	<link rel="stylesheet" type="text/css" href="/static/index.css">
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="{{ url_for('static', filename='search.js') }}"></script>
+</head>
+<body>
+
+<header class="site-header">
+	<h1>Gourmet's Grimoire: Search Results</h1>
+</header>
+
+<nav>
+	<ul>
+		<li><a href="/home">Home</a></li>
+		<li><a href="/myRecipes">My Recipes</a></li>
+		<li><a href="/favoriteRecipes">Favorite Recipes</a></li>
+		<li><a href="/allRecipes">All Recipes</a></li>
+		<li><a href="/addRecipe">Create New Recipe!</a></li>
+		<li><a href="/cart">Shopping Cart</a></li>
+		<li><a href="/userSettings">User Settings</a></li>
+		<li><a href="/logout">Log Out</a></li>
+	</ul>
+</nav>
+
+<main id="recipe-container">
+	<section class="recipe-list">
+		{% for recipe in recipes %}
+			<article class="recipe">
+				<h2>{{recipe.title}}</h2>
+				<p class="description">{{recipe.description}}</p>
+				<p class="ingredients">Ingredients: {{recipe.ingredients}}</p>
+				<p class="instructions">Instructions: {{recipe.instructions}}</p>
+				<div class="recipe-actions">
+					<form method="post" action="{{ url_for('favoriteRecipe', recipeId=recipe.recipeId) }}">
+						<button type="submit" class="favorite-btn">Favorite Recipe</button>
+					</form>
+					<form method="post" action="{{ url_for('addCart', recipeId=recipe.recipeId) }}">
+						<button type="submit" class="cart-btn">Add to Cart</button>
+					</form>
+				</div>
+			</article>
+		{% else %}
+			<p>No recipes found with ingredient {{ ingredient }}.</p>
+		{% endfor %}
+	</section>
+</main>
+</body>
+</html>
